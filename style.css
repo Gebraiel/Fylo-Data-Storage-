@@ -1,0 +1,160 @@
+:root{
+    --Gradient: hsl(6, 100%, 80%) to hsl(335, 100%, 65%);
+    --Pale-Blue: hsl(243, 100%, 93%);
+    --Grayish-Blue: hsl(229, 7%, 55%);
+    --Dark-Blue: hsl(228, 56%, 26%);
+    --Very-Dark-Blue: hsl(229, 57%, 11%);
+}
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(images/bg-desktop.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-color:var(--Very-Dark-Blue);
+    background-size: contain;
+}
+main{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    gap:30px;
+}
+.left-part{
+    background-color: var(--Dark-Blue);
+    width: 300px;
+    padding:50px 30px;
+    border-radius: 15px;
+    border-top-right-radius: 50%;
+}
+.left-part ul{
+    display: flex;
+    list-style-type: none;
+    gap:20px;
+    font-size: 25px;
+    margin-top:30px;
+}
+.left-part ul li{
+    width:50px;
+    height:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color:var(--Dark-Blue);
+    background-color: var(--Very-Dark-Blue);
+}
+.right-part{
+    width:500px;
+    padding:40px;
+    background-color: var(--Dark-Blue);
+    align-self: flex-end;
+    border-radius: 10px;
+    position: relative;
+}
+.right-part .remaining{
+    position: absolute;
+    top:-35%;
+    transform: translateY(50%);
+    right:40px;
+    background-color: white;
+    padding:10px 20px;
+    border-radius: 10px;
+    color:var(--Grayish-Blue);
+}
+.right-part .remaining::after{
+    content: "";
+    display: block;
+    position: absolute;
+    right:0px;
+    bottom:-15px;
+    border:15px solid black;
+    border-color:transparent white transparent transparent;
+
+}
+.right-part .remaining b{
+    color:var(--Very-Dark-Blue);
+    font-size: 30px;
+    vertical-align: sub;
+}
+.right-part .progress-bar{
+    width: 100%;
+    height: 23px;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    background-color: var(--Very-Dark-Blue);
+    position: relative;
+    padding: 10px 3px;
+}
+.right-part .progress-bar span{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width:80%;
+    height:15px;
+    border-radius: 15px;
+    background:linear-gradient(90deg,hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+}
+.right-part .progress-bar span::before{
+    content:"";
+    display: block;
+    width:10px;
+    height: 10px;
+    background-color: white;
+    margin-right:2px;
+    border-radius: 50%;
+    z-index: 1;
+}
+.right-part p{
+    color:var(--Pale-Blue);
+    margin-bottom:15px;
+}
+
+.right-part .progress-bar + div{
+    display: flex;
+    justify-content: space-between;
+    color:var(--Pale-Blue);
+    margin-top:10px;
+}
+
+@media(max-width:991px){
+    body{
+        background-image: url(images/bg-mobile.png);
+        background-size: cover;
+    }
+    main{
+        width: 40%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .left-part{
+        width: 100%;
+    }
+    .right-part{
+        align-self: center;
+        width: 100%;
+    }
+    .right-part .remaining{
+        top: 100%;
+        transform: translateY(-50%);
+        right: 25%;
+    }
+    .right-part .remaining::after{
+        border-color:transparent
+    }
+}
+@media(max-width:500px){
+    main{
+        width: 90%;
+    }
+}
